@@ -60,9 +60,10 @@
 (global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 ;; set tags
-;;(setq tags-file-name "E:/2.4/popocloud/TAGS")
-(setq tags-file-name "d:/PopoServer/trunk/3.0/popocloud/TAGS")
-(setq tags-file-name "D:/PopoServer/trunk/PC/Tools/Python27/TAGS")
+
+(setq tags-file-name "D:/PopoServer/trunk/3.0/popocloud/TAGS")
+(setq tags-table-list '("D:/PopoServer/trunk/3.0/popocloud/TAGS""D:/PopoServer/trunk/PC/Tools/Python27/TAGS"))
+;;(setq tags-file-name "D:/PopoServer/trunk/PC/Tools/Python27/TAGS")
 ;;显示时间
 (display-time-mode 1) ;;启用时间显示设置，再minibuffer上面那个杠上
 
@@ -111,7 +112,7 @@
 ;;跳转到.emacs配置文件快捷键
 ;;(set-register ?e '(file "c:"))
 ;;设置所有的问答采用y/n方式
-(fset 'yes-or-no-p 'y-n-p)
+(fset 'yes-or-no-p 'y-or-n-p)
 
 ;;定位到我想要的文件件目录 ;;定义变量
 (defconst my-projects-path "d:/PopoServer/trunk/3.0/popocloud")
@@ -125,3 +126,8 @@
   (interactive)
   (dired my-script-path))
 
+;;自动插入匹配的括号
+;;(setq skeleton-pair t)
+;;(global-set-key (kbd "(") 'skeleton-pair-insert-maybe))
+;;(global-set-key (kbd "[") 'skeleton-pair-insert-maybe))
+;;(global-set-key (kbd "{") 'skeleton-pair-insert-maybe))
