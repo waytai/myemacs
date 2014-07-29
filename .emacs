@@ -21,8 +21,11 @@
 (set-mouse-color "white")
 ;;
 ;; 设置背景颜色和字体颜色
-(set-background-color "black")
-(set-foreground-color "white")
+;;(set-background-color "black")
+;;(set-foreground-color "white")
+(set-background-color "#C1FFC1")
+(set-foreground-color "#102372")
+
 ;; 设置另外一些颜色：语法高亮显示的背景和主题，区域选择的背景和主题，二次选择的背景和选择
 ;;(set-face-foreground 'highlight "white")
 ;;(set-face-background 'highlight "blue")
@@ -90,3 +93,21 @@
 
 ;;在标题栏提示当前位置
 (setq frame-title-format "Fiona@%b")
+;;自动补全
+(setq hippie-expand-try-functions-list
+      '(
+        try-expand-dabbrev
+        try-expand-dabbrev-visible
+        try-expand-dabbrev-all-buffers
+        try-expand-dabbrev-from-kill
+        try-expand-list
+        try-expand-list-all-buffers
+        try-expand-line
+        try-expand-line-all-buffers
+        try-complete-file-name-partially
+        try-complete-file-name
+        try-expand-whole-kill
+        )
+)
+;;跳转到.emacs配置文件快捷键
+;;(set-register ?e '(file "c:"))
