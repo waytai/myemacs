@@ -86,8 +86,6 @@
 (global-set-key (kbd  "C-x C-a") 'emacs-maximize)
 (global-set-key (kbd  "C-x a") 'emacs-minimize)
 
-;;设置默认工作目录
-(setq default-directory "E:/")
 ;;支持emacs和外部程序的拷贝和粘贴
 (setq x-select-enable-clipboard t)
 
@@ -111,3 +109,14 @@
 )
 ;;跳转到.emacs配置文件快捷键
 ;;(set-register ?e '(file "c:"))
+;;设置所有的问答采用y/n方式
+(fset 'yes-or-no-p 'y-n-p)
+
+;;定位到我想要的文件件目录
+;;定义变量
+(defconst my-projects-path "d:/PopoServer/trunk/3.0/popocloud")
+
+;;定义函数
+(defun goto-my-projects-dir ()
+  (interactive)
+  (dired my-projects-path))
