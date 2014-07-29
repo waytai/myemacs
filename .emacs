@@ -81,3 +81,12 @@
   
 ;; (emacs-maximize)  
 (global-set-key (kbd  "C-x C-a") 'emacs-maximize)
+(global-set-key (kbd  "C-x a") 'emacs-minimize)
+
+;;设置默认工作目录
+(setq default-directory "E:/")
+;;支持emacs和外部程序的拷贝和粘贴
+(setq x-select-enable-clipboard t)
+
+;;在标题栏提示当前位置
+(setq frame-title-format "Fiona@%b")
