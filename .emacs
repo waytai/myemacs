@@ -138,3 +138,13 @@
   (let ((inhibit-read-only t))   
     (erase-buffer)))   
 
+;;检查拼写错误
+(defun turn-spell-checking-on ()
+  "Turn flyspell-mode on."
+  (flyspell-mode 1)
+  )
+
+(add-hook 'text-mode-hook 'turn-spell-checking-on)
+
+;;cua model
+(cua-mode 1)
