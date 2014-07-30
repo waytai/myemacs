@@ -1,4 +1,4 @@
-;Load_path
+;;Load_path
 (add-to-list 'load-path' "~/.emacs.d/plugins")
 
 (custom-set-variables
@@ -148,3 +148,15 @@
 
 ;;cua model
 (cua-mode 1)
+
+;;【Enter ↵】 Describe the package under cursor. (describe-package)
+;;【i】 mark for installation. (package-menu-mark-install)
+;;【u】 unmark. (package-menu-mark-unmark)
+;;【d】 mark for deletion (removal of a installed package). (package-menu-mark-delete)
+;;【x】 for “execute” (start install/uninstall of marked items). (package-menu-execute)
+;;【r】 refresh the list from server. (package-menu-refresh)
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (package-initialize)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  )
