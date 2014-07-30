@@ -127,7 +127,14 @@
   (dired my-script-path))
 
 ;;自动插入匹配的括号
-;;(setq skeleton-pair t)
-;;(global-set-key (kbd "(") 'skeleton-pair-insert-maybe))
-;;(global-set-key (kbd "[") 'skeleton-pair-insert-maybe))
-;;(global-set-key (kbd "{") 'skeleton-pair-insert-maybe))
+(setq skeleton-pair t)
+(global-set-key (kbd "(") 'skeleton-pair-insert-maybe)
+(global-set-key (kbd "[") 'skeleton-pair-insert-maybe)
+(global-set-key (kbd "{") 'skeleton-pair-insert-maybe)
+;;清理shell 模式的屏幕
+(defun eshell/cls()   
+  "to clear the eshell buffer."   
+  (interactive)   
+  (let ((inhibit-read-only t))   
+    (erase-buffer)))   
+
