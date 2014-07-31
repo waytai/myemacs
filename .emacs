@@ -1,5 +1,7 @@
 ;;Load_path
 (add-to-list 'load-path' "~/.emacs.d/plugins")
+(add-to-list 'load-path' "~/.emacs.d/elpa") 
+;;(add-to-list 'exec-path  "d:/software/emacs/bin") 
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -92,7 +94,7 @@
 (setq x-select-enable-clipboard t)
 
 ;;在标题栏提示当前位置
-(setq frame-title-format "Fiona@%b")
+(setq frame-title-format "%b")
 ;;自动补全
 (setq hippie-expand-try-functions-list
       '(
@@ -163,6 +165,8 @@
   )
 
 ;; check OS type
+(defun current-system ()
+(interactive)
 (cond
  ((string-equal system-type "windows-nt") ; Microsoft Windows
   (progn
@@ -177,7 +181,7 @@
   (progn
     (message "Linux") )
   )
- )
+ ))
 ;; learn elisp http://ergoemacs.org/emacs/elisp.html
 
 
@@ -190,3 +194,25 @@
   kept-new-versions 6 ; 保留最近的6个备份文件
   kept-old-versions 2 ; 保留最早的2个备份文件
   version-control t) ; 多次备份
+
+
+;;复制一个单词
+(defun copy-word (&optional arg)
+ "Copy words at point"
+ (interactive "P")
+ (let ((beg (progn (if (looking-back "[a-zA-Z0-9]" 1) (backward-word 1)) (point))) 
+	(end (progn (forward-word arg) (point))))
+ (copy-region-as-kill beg end))
+)
+
+(global-set-key (kbd  "C-c w") 'copy-word) 
+
+;;复制一行
+(defun copy-line (&optional arg)
+ "Save current line into Kill-Ring without mark the line"
+ (interactive "P")
+ (let ((beg (line-beginning-position)) 
+	(end (line-end-position arg)))
+ (copy-region-as-kill beg end))
+)
+(global-set-key (kbd  "C-c l") 'copy-line)  
