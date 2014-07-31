@@ -155,8 +155,27 @@
 ;;【d】 mark for deletion (removal of a installed package). (package-menu-mark-delete)
 ;;【x】 for “execute” (start install/uninstall of marked items). (package-menu-execute)
 ;;【r】 refresh the list from server. (package-menu-refresh)
+;;just call to list-packages
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
   )
+
+;; check OS type
+(cond
+ ((string-equal system-type "windows-nt") ; Microsoft Windows
+  (progn
+    (message "Microsoft Windows") )
+  )
+ ((string-equal system-type "darwin")   ; Mac OS X
+  (progn
+    (message "Mac OS X")
+    )
+  )
+ ((string-equal system-type "gnu/linux") ; linux
+  (progn
+    (message "Linux") )
+  )
+ )
+;; learn elisp http://ergoemacs.org/emacs/elisp.html
