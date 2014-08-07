@@ -170,7 +170,7 @@
 (cond
  ((string-equal system-type "windows-nt") ; Microsoft Windows
   (progn
-    (message "Microsoft Windows") )
+    (message "Microsoft Windows"))
   )
  ((string-equal system-type "darwin")   ; Mac OS X
   (progn
@@ -216,3 +216,7 @@
  (copy-region-as-kill beg end))
 )
 (global-set-key (kbd  "C-c l") 'copy-line)  
+
+
+;;切换窗口
+(global-set-key [(control tab)] 'other-window)
