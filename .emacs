@@ -213,10 +213,14 @@
  (interactive "P")
  (let ((beg (line-beginning-position)) 
 	(end (line-end-position arg)))
- (copy-region-as-kill beg end))
-)
+ (copy-region-as-kill beg end)))
+
 (global-set-key (kbd  "C-c l") 'copy-line)  
 
 
 ;;切换窗口
 (global-set-key [(control tab)] 'other-window)
+
+;;自动换行
+(add-hook 'lisp-mode-hook '(lambda ()
+      (local-set-key (kbd "RET") 'newline-and-indent))) 
