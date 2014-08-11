@@ -249,3 +249,18 @@
 (setq ac-auto-start 2)
 (setq ac-dwim t)
 (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+
+;;python
+(require 'python)
+;;python语法检查,需要安装python-pyflakes
+(require 'flymake-python-pyflakes)
+(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+
+
+
+
+
+
+
+
+
